@@ -1,43 +1,20 @@
 #language: pt
+@funcionais
 Funcionalidade: Cadastro de contas
 
 Como um usuário 
 Gostaria de cadastrar contas
 Para que eu possa distribuir meu dinheiro de uma forma mais organizada
 
-Cenário: Deve inserir uma conta com sucesso
-	Dado que estou acessando a aplicação
-	Quando informo o usuário "luiz@luiz.com"
-	E a senha "12345678"
-	E seleciono entrar
-	Então visualizo a página inicial
-	Quando seleciono Contas
-	E seleciono Adicionar
-	E informo a conta "Conta de Teste"
-	E seleciono Salvar
-	Então a conta é inserida com sucesso
+Contexto:
+	Dado que desejo adicionar uma conta
 
-
-Cenário: Não deve inserir uma conta sem nome
-	Dado que estou acessando a aplicação
-	Quando informo o usuário "luiz@luiz.com"
-	E a senha "12345678"
-	E seleciono entrar
-	Então visualizo a página inicial
-	Quando seleciono Contas
-	E seleciono Adicionar
-	E seleciono Salvar
-	Então sou notificar que o nome da conta é obrigatório
-
-
-Cenário: Não deve inserir uma conta com nome já existente
-	Dado que estou acessando a aplicação
-	Quando informo o usuário "luiz@luiz.com"
-	E a senha "12345678"
-	E seleciono entrar
-	Então visualizo a página inicial
-	Quando seleciono Contas
-	E seleciono Adicionar
-	E informo a conta "Conta de Teste"
-	E seleciono Salvar
-	Então sou notificado que já existe uma conta com esse nome
+Esquema do Cenário: Deve validar regras de cadastro das contas
+	Quando adiciono a conta "<conta>"
+	Então recebo a mensagem "<mensagem>"
+	
+Exemplos:
+	| conta							| mensagem															|
+	| conta de Teste		|  Conta adicionada com sucesso					|
+	|										| Informe o nome da conta								|
+	| Conta para saldo 	| Já existe uma conta com esse nome			|

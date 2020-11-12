@@ -8,6 +8,7 @@ import java.util.Date;
 import org.junit.Assert;
 
 import br.rs.luiz.converters.DateConverter;
+import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
@@ -107,6 +108,24 @@ public class AprenderCucumberSteps {
 	@Então("^o teste vai passar$")
 	public void oTesteVaiPassar() throws Throwable {
 	   
+	}
+	
+	
+	@Dado("^que desejo adicionar uma conta$")
+	public void queDesejoAdicionarUmaConta() throws Throwable {
+	  
+	}
+
+	@Quando("^adiciono a conta \"([^\"]*)\"$")
+	public void adicionoAConta(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Então("^recebo a mensagem \"([^\"]*)\"$")
+	public void receboAMensagem(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
 
 
